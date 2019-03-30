@@ -104,4 +104,4 @@ class ICNet(nn.Module):
         if self.training:
             return (all_scale_classes, half_classes, quarter_classes)  
         else:
-            return F.interpolate(all_scale_classes, scale_factor=2, mode='bilinear', align_corners=True)
+            return all_scale_classes

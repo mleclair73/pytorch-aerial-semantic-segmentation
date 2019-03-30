@@ -92,6 +92,7 @@ class ICNet(nn.Module):
         half_features = self.half_scale(inputs)   
         quarter_features = self.quarter_scale(half_features)
         
+        quarter_features = F.interpolate(quarter_features, scale_factor=2, mode='bilinear', align_corners=True)
         quarter_half_fused, quarter_classes = self.quarter_half_CFF(quarter_features, half_features)
         quarter_half_fused = F.interpolate(quarter_half_fused, scale_factor=2, mode='bilinear', align_corners=True)
         all_scales_fused, half_classes = self.half_full_CFF(quarter_half_fused, full_features)

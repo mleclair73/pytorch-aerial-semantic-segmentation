@@ -5,3 +5,4 @@ pytorch-semseg
 caffe_pb2.py
 weights
 model_weights
+models/weights

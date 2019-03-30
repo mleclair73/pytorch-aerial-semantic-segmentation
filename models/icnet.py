@@ -66,6 +66,7 @@ class ICNet(nn.Module):
         
             #Conv 5_4_k1
             ('conv5_4_k1',      Conv2D_BN_ReLU('conv5_4_k1', 1024, 256, kernel_size=1, padding=0, stride=1, bias=bias, include_bn=batch_norm)),
+            ('conv5_4_interp',  Interpolate(scale=2, mode='bilinear', align_corners=True))
         ]))
         self.quarter_half_CFF = CascadeFeatureFusion(num_classes,
                                                      256,

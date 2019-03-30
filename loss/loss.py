@@ -14,7 +14,6 @@ def categorical_cross_entropy(pred, target, weight=None, size_average=None):
     loss = F.cross_entropy(pred, target.long(), weight=weight, size_average=size_average, ignore_index=250)
     return loss
 
-
 #     if pred.shape != target.shape:
 #         pred = F.interpolate(pred, size=target.shape[1:], mode='bilinear', align_corners=True).squeeze()
 #     pred = torch.tensor(np.argmax(np.transpose(pred.detach().numpy(), (1, 2, 0)), axis=2), dtype=torch.float).unsqueeze(0)

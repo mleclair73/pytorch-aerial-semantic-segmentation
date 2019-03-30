@@ -235,3 +235,13 @@ class Conv2D_BN(nn.Module):
     def forward(self, inputs):
         return self.block(inputs)
     
+
+def get_all_base_layers(module):
+    acc = {}
+    for name, child in module.named_children():
+        base_layers = get_all_base_layers(child)
+        if not base_layers:
+            acc[name] = child
+        else:
+            acc = {**acc, **base_layers}
+    return acc

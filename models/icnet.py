@@ -3,7 +3,7 @@ from collections import OrderedDict
 from torch import nn
 import torch.nn.functional as F
 
-from models.utils import Conv2D_BN_ReLU, Conv2D_BN_ReLU
+from models.utils import *
 
 # Now we can define our network
 class ICNet(nn.Module):
@@ -95,9 +95,9 @@ class ICNet(nn.Module):
 #         quarter_half_fused = F.interpolate(quarter_half_fused, scale_factor=2, mode='bilinear', align_corners=True)
         all_scales_fused, half_classes = self.half_full_CFF(quarter_half_fused, full_features)
         all_scales_fused = F.interpolate(all_scales_fused, scale_factor=2, mode='bilinear', align_corners=True)
-        print(all_scales_fused.shape)
+        # print(all_scales_fused.shape)
         all_scale_classes = self.conv6_cls(all_scales_fused)
-        print(all_scale_classes.shape)
+        # print(all_scale_classes.shape)
         
         if self.training:
             return (all_scale_classes, half_classes, quarter_classes)  

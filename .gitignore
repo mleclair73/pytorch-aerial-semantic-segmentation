@@ -1,0 +1,11 @@
+# ignore all files
+*
+
+# except jupyter notebooks
+!*.ipynb
+!*.py
+!models*
+!metrics.py
+!loss*
+!.gitignore
+caffe_pb2.py

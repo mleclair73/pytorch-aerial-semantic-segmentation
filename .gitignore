@@ -3,5 +3,5 @@ __pycache__
 pytorch-caffe
 pytorch-semseg
 caffe_pb2.py
-*.jpg
+weights
 model_weights
